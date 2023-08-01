@@ -2,8 +2,7 @@
 import java.util.Locale;
 import java.util.Scanner;
 
-//Fazer um programa para ler um número N. Depois leia N pares de números e mostre a divisão do primeiro pelo 
-//segundo. Se o denominador for igual a zero, mostrar a mensagem "divisao impossivel".
+
 public class ex06 {
 	
 	public static void main(String[] args) {
@@ -21,7 +20,7 @@ public class ex06 {
 			float b=sc.nextFloat();
 			
 			if(b!=0) {
-				System.out.printf("%.1f\n\n",a/b);
+				System.out.printf("%.1f\n",a/b);
 			}else {
 				System.out.println("Divisão impossível");
 			}
