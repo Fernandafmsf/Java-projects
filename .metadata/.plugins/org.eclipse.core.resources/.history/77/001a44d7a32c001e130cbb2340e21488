@@ -1,0 +1,90 @@
+package view;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class viewPrimeiraTela {
+
+	private JFrame frame;
+	private JTextField txtNome;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		
+		try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+           System.err.println(ex);
+        } catch (InstantiationException ex) {
+        	System.err.println(ex);
+        } catch (IllegalAccessException ex) {
+        	System.err.println(ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        	System.err.println(ex);
+        }
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					viewPrimeiraTela window = new viewPrimeiraTela();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public PrimeiraTela() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Nome");
+		lblNewLabel.setBounds(121, 83, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		txtNome = new JTextField();
+		txtNome.setBounds(121, 108, 181, 20);
+		frame.getContentPane().add(txtNome);
+		txtNome.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Mostrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "Nome: "+txtNome.getText());//código para mostrar texto digitado na caixa de texto
+				
+			}
+		});
+		btnNewButton.setBounds(173, 154, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+	}
+}
