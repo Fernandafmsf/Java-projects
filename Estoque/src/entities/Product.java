@@ -17,5 +17,17 @@ public class Product {
 	public void RemoveProducts(int quantity) {
 		this.quantity -= quantity;
 	}
+	
+	//esse método esta sobreescrevendo método 'toString', um método da classe Object
+	//esse método vai retornar a resposta 
+	public String toString() {
+		return name
+				+", $"
+				+String.format("%.2f", price)
+				+", "
+				+quantity
+				+" units, Total: $ "
+				+String.format("%.2f", TotalValueInStock());
+	}
 
 }

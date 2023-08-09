@@ -13,23 +13,30 @@ public class Program {
 		
 		Product product = new Product();
 		System.out.println("Enter product data");
-		System.out.println("Name: ");
+		System.out.print("Name: ");
 		product.name=sc.nextLine();//pega a variavel
 		
-		System.out.println("Price:");
+		System.out.print("Price:");
 		product.price=sc.nextDouble();
 		
-		System.out.println("Quantity in stock: ");
+		System.out.print("Quantity in stock: ");
 		product.quantity=sc.nextInt();
 		
-		System.out.println("Product data: "+product.name+", R$"+product.price+", "+
-		product.quantity+" units, Total: R$"+product.TotalValueInStock());
+		//USANDO O METODO PARA EXIBIR OS DADOS 
+		System.out.println(product.toString());
 		
 		System.out.println("Enter the number of products to be added in stock: ");
-		product.AddProduct(sc.nextInt());
+		int quantity = sc.nextInt();
+		product.AddProduct(quantity);
 		
-		System.out.println("Product data: "+product.name+", R$"+product.price+", "+
-				product.quantity+" units, Total: R$"+product.TotalValueInStock());
+		//Não é necessário usar '.toString', automaticamente se entende que esse metodo está sendo chamado
+		System.out.println("Updated data: "+product);
+		
+		System.out.println("Enter the number of products to be removed from stock:");
+		quantity=sc.nextInt();
+		product.RemoveProducts(quantity);
+		
+		System.out.println("Updated data: "+product);
 		
 		sc.close();
 	}
